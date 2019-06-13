@@ -14,8 +14,8 @@ export default (
         
         <br />
         <Switch>
-            <Route component={Main} exact path='/' />
             <Route component={Profile} path='/profile' />
+            <Route component={Main} path='/' />
         </Switch>
     </div>
 )

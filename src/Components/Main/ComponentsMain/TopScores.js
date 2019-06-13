@@ -7,7 +7,7 @@ class TopScores extends Component {
     render() {
         return (
             <div className='box'>
-                <table class="table is-striped is-fullwidth">
+                <table className="table is-striped is-fullwidth">
                     <thead>
                         <tr>
                             <th>Rank</th>
@@ -79,6 +79,8 @@ class TopScores extends Component {
                         </tr>
                     </tbody>
                 </table>
+
+
             </div>
         )
     };

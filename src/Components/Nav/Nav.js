@@ -41,9 +41,9 @@ class Nav extends Component {
                                     <div className="navbar-end">
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <a className="button is-dark is-outlined">
+                                                <button className="button is-dark is-outlined">
                                                     <strong>Log Out</strong>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -51,17 +51,16 @@ class Nav extends Component {
                             )
                             :
                             (
-
                                 <div id="navbarBasicExample" className="navbar-menu">
                                     <div className="navbar-end">
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <a className="button is-dark is-outlined">
+                                                <button className="button is-dark is-outlined">
                                                     <strong>Register</strong>
-                                                </a>
-                                                <a className="button is-dark is-outlined">
+                                                </button>
+                                                <button className="button is-dark is-outlined">
                                                     <strong>Log In</strong>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

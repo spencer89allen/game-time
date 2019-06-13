@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Profile extends Component {
@@ -10,11 +10,11 @@ class Profile extends Component {
             <div className=''>
                 <section className="hero is-medium is-dark is-bold">
                     <div className="hero-body">
-                        <div class="container">
-                            <h1 class="title">
+                        <div className="container">
+                            <h1 className="title">
                                 Profile
                             </h1>
-                            <h2 class="subtitle">
+                            <h2 className="subtitle">
                                 Click Here to <button className="button is-small is-rounded is-danger is-inverted is-outlined">Play</button>
                             </h2>
                         </div>
