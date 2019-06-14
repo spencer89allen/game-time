@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route, Redirect } from 'react-router-dom';
+
+import GameHistory from './ComponentsProfile.js/GameHistory.js';
+import Info from './ComponentsProfile.js/Info.js';
 
 
 class Profile extends Component {
@@ -23,18 +26,27 @@ class Profile extends Component {
                 <div className="tabs is-medium is-centered">
                     <ul>
                         <li className="is-active">
-                            <Link to={`${this.props.match.url}scores`}>
+                            <Link to={`${this.props.match.url}/gameHistroy`}>
                                 <p>Game History</p>
                             </Link>
                         </li>
                         <li>
-                            <Link to={`${this.props.match.url}game`}>
+                            <Link to={`${this.props.match.url}/info`}>
                                 <p>Info</p>
                             </Link>
                         </li>
                     </ul>
                 </div>
+                <div>
+                    <Switch>
+                        <Route component={GameHistory} exact path={`${this.props.match.path}/gameHistroy`} />
+                        <Route component={Info} path={`${this.props.match.path}/info`} />
+
+                        <Redirect to={`${this.props.match.path}/gameHistroy`}/>
+
+                    </Switch>
             </div>
+        </div>
         )
     };
 };
