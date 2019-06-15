@@ -11,7 +11,7 @@ class Main extends Component {
 
 
     render() {
-        console.log(this.props.match.path)
+        // console.log(this.props.match.path)
         return (
             <div>
                 <section className="hero is-dark is-medium">

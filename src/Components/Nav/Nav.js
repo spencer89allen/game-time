@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 class Nav extends Component {
@@ -7,6 +9,7 @@ class Nav extends Component {
     state = {
         showRegisterModal: false,
         showLoginModal: false,
+        login: false,
     }
 
 
@@ -24,6 +27,7 @@ class Nav extends Component {
 
 
     render() {
+        console.log(this.props.location.pathname)
         return (
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -35,7 +39,7 @@ class Nav extends Component {
                         </div>
                     </div>
                     {
-                        this.props.location.pathname !== `/` ?
+                        this.state.login !== false ?
                             (
                                 <div id="navbarBasicExample" className="navbar-menu">
                                     <div className="navbar-end">
@@ -56,10 +60,15 @@ class Nav extends Component {
                                         <div className="navbar-item">
                                             <div className="buttons">
                                                 <button className="button is-dark is-outlined">
-                                                    <strong>Register</strong>
+                                                    <Link to='/register'>
+                                                        <strong>Register</strong>
+                                                    </Link>
                                                 </button>
+
                                                 <button className="button is-dark is-outlined">
-                                                    <strong>Log In</strong>
+                                                    <Link to='/login'>
+                                                        <strong>Log In</strong>
+                                                    </Link>
                                                 </button>
                                             </div>
                                         </div>
@@ -68,10 +77,18 @@ class Nav extends Component {
                             )
                     }
                 </nav>
+
             </div>
         )
     };
 };
 
-export default Nav;
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(Nav);
 

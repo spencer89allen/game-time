@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
 import Main from './Components/Main/Main';
 import Profile from './Components/Profile/Profile';
+import RegisterModal from './Components/Main/ComponentsMain/RegisterModal';
+import LoginModal from './Components/Main/ComponentsMain/LoginModal';
 
 
 export default (
@@ -14,8 +16,10 @@ export default (
         
         <br />
         <Switch>
-            <Route component={Profile} path='/profile' />
-            <Route component={Main} path='/' />
+            <Route component={ Profile } path='/profile' />
+            <Route component={ RegisterModal } path='/register' />
+            <Route component={ LoginModal } path='/login' />
+            <Route component={ Main } path='/' />
         </Switch>
     </div>
 )
