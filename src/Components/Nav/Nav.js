@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
+import { logout } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
+
+
 class Nav extends Component {
 
 
@@ -13,21 +16,26 @@ class Nav extends Component {
     }
 
 
-    toggleRegisterModal = () => {
-        this.setState({
-            showRegisterModal: !this.showRegisterModal,
-        });
-    };
+    // toggleRegisterModal = () => {
+    //     this.setState({
+    //         showRegisterModal: !this.showRegisterModal,
+    //     });
+    // };
 
-    toggleLoginModal = () => {
-        this.setState({
-            showLoginModal: !this.showLoginModal,
-        })
-    }
+    // toggleLoginModal = () => {
+    //     this.setState({
+    //         showLoginModal: !this.showLoginModal,
+    //     })
+    // }
 
 
-    render() {
-        console.log(this.props.location.pathname)
+
+    
+    render(props) {
+        console.log(this.props.auth)
+        console.log(this.props.auth.uid)
+        // cosnt { auth } = this.props.auth;
+        // const logIn = this.props.auth.uid ?
         return (
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -39,13 +47,14 @@ class Nav extends Component {
                         </div>
                     </div>
                     {
-                        this.state.login !== false ?
+                        !this.state.login ? 
                             (
                                 <div id="navbarBasicExample" className="navbar-menu">
                                     <div className="navbar-end">
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <button className="button is-dark is-outlined">
+                                                <button className="button is-dark is-outlined"
+                                                        onClick={() => this.props.logout()}>
                                                     <strong>Log Out</strong>
                                                 </button>
                                             </div>
@@ -84,11 +93,17 @@ class Nav extends Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state.rootReducer)
     return {
-
+        auth: state.rootReducer.firebase.auth
     }
 }
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
 

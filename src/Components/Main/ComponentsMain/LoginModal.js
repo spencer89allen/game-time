@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+
 
 import { login } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js'
 
