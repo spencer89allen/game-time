@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
+
 
 
 import { login } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js'
@@ -30,7 +32,7 @@ class LoginModal extends Component {
 
     render() {
         //console.log(this.state)
-        return(
+        return (
             // <div className="modal">
             //     <div className="modal-background"></div>
             //     <div className="modal-card">
@@ -39,7 +41,7 @@ class LoginModal extends Component {
             //             <button className="delete" aria-label="close"></button>
             //         </header>
             //         <section className="modal-card-body">
-                        
+
             //         </section>
             //         <footer className="modal-card-foot">
             //             <button className="button is-success">Save changes</button>
@@ -69,12 +71,12 @@ class LoginModal extends Component {
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
-                                    <input  className="input" 
-                                            type="email" 
-                                            placeholder="User email" 
-                                            name='email'
-                                            value={this.state.email}
-                                            onChange={(e) => this.handleInput(e.target.name, e.target.value)}/>
+                                    <input className="input"
+                                        type="email"
+                                        placeholder="User email"
+                                        name='email'
+                                        value={this.state.email}
+                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
                         </div>
@@ -105,12 +107,12 @@ class LoginModal extends Component {
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
-                                    <input  className="input" 
-                                            type="email" 
-                                            placeholder="User Password" 
-                                            name='password'
-                                            value={this.state.password}
-                                            onChange={(e) => this.handleInput(e.target.name, e.target.value)}/>
+                                    <input className="input"
+                                        type="email"
+                                        placeholder="User Password"
+                                        name='password'
+                                        value={this.state.password}
+                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
                         </div>
@@ -119,7 +121,12 @@ class LoginModal extends Component {
                 </div>
                 <br />
                 <span className='buttons is-right'>
-                    <button className="button is-success" onClick={() => this.handleLogin()} >Login</button>
+                    <Link to="/profile">
+                        {/* we will need to add and id so we know which user is using the profile page */}
+                        <button className="button is-success"
+                            onClick={() => this.handleLogin()}
+                        >Login</button>
+                    </Link>
                 </span>
             </div>
         )

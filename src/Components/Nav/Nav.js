@@ -30,7 +30,7 @@ class Nav extends Component {
 
 
 
-    
+
     render(props) {
         console.log(this.props.auth)
         console.log(this.props.auth.uid)
@@ -47,16 +47,18 @@ class Nav extends Component {
                         </div>
                     </div>
                     {
-                        !this.state.login ? 
+                        this.props.auth.uid ?
                             (
                                 <div id="navbarBasicExample" className="navbar-menu">
                                     <div className="navbar-end">
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <button className="button is-dark is-outlined"
+                                                <Link to='/'>
+                                                    <button className="button is-dark is-outlined"
                                                         onClick={() => this.props.logout()}>
-                                                    <strong>Log Out</strong>
-                                                </button>
+                                                        <strong>Log Out</strong>
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

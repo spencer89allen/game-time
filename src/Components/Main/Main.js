@@ -21,7 +21,10 @@ class Main extends Component {
                                 Game Time
                             </h1>
                             <h2 className="subtitle">
-                                <button className="button is-small is-rounded is-danger is-inverted is-outlined">Log In</button> or <button className="button is-small is-rounded is-danger is-inverted is-outlined">Register</button> to Play
+                                <Link to='/login'>
+                                    <button className="button is-small is-rounded is-danger is-inverted is-outlined">Log In</button>
+                                </Link>
+                                or <button className="button is-small is-rounded is-danger is-inverted is-outlined">Register</button> to Play
                             </h2>
                         </div>
                     </div>
@@ -57,7 +60,7 @@ class Main extends Component {
                         <Route component={AboutGame} path='/game' />
                         <Route component={SomethingElse} path='/something' />
 
-                        <Redirect to='/scores'/>
+                        <Redirect to='/scores' />
 
                     </Switch>
                 </div>
