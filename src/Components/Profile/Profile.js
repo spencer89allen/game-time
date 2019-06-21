@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import GameHistory from './ComponentsProfile.js/GameHistory.js';
 import Info from './ComponentsProfile.js/Info.js';
@@ -9,6 +10,13 @@ class Profile extends Component {
 
 
     render() {
+        const { auth } = this.props
+
+        console.log(auth.uid)
+
+        if(!auth.uid ) return <Redirect to='/login' />
+        // ^ 
+
         return (
             <div className=''>
                 <section className="hero is-medium is-dark is-bold">
@@ -51,4 +59,11 @@ class Profile extends Component {
     };
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+    console.log(state.rootReducer.firebase.auth)
+    return {
+        auth: state.rootReducer.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(Profile);

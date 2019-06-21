@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
+// import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
 
+import { register } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
 
-import { login } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js'
 
-
-class LoginModal extends Component {
+class RegisterModal extends Component {
 
     state = {
-        username: '',
         email: '',
         password: '',
+        firstName: '',
+        lastName: '',
     }
-
-
 
     handleInput = (name, value) => {
         this.setState({
@@ -24,38 +22,19 @@ class LoginModal extends Component {
         })
     }
 
-    handleLogin = (e) => {
-        //e.preventDefault();
-        this.props.login(this.state)
+    handleRegister = (e) => {
+        this.props.register(this.state)
     }
 
-
     render() {
-        //console.log(this.state)
+        console.log(this.state)
         return (
-            // <div className="modal">
-            //     <div className="modal-background"></div>
-            //     <div className="modal-card">
-            //         <header className="modal-card-head">
-            //             <p className="modal-card-title">Login</p>
-            //             <button className="delete" aria-label="close"></button>
-            //         </header>
-            //         <section className="modal-card-body">
-
-            //         </section>
-            //         <footer className="modal-card-foot">
-            //             <button className="button is-success">Save changes</button>
-            //             <button className="button">Cancel</button>
-            //         </footer>
-            //     </div>
-            // </div>
-
             <div>
                 <section className="hero is-dark is-medium">
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Login
+                                Register
                             </h1>
                         </div>
                     </div>
@@ -66,14 +45,14 @@ class LoginModal extends Component {
 
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Email</label>
+                            <label className="label">Email:</label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="email"
-                                        placeholder="User email"
+                                        placeholder="Recipient email"
                                         name='email'
                                         value={this.state.email}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
@@ -82,36 +61,54 @@ class LoginModal extends Component {
                         </div>
                     </div>
 
-                    {/* <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label className="label">Username</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control">
-                                    <input  className="input" 
-                                            type="email" 
-                                            placeholder="Username" 
-                                            name='username'
-                                            value={this.state.username}
-                                            onChange={(e) => this.handleInput(e.target.name, e.target.value)}/>
-                                </p>
-                            </div>
-                        </div>
-                    </div> */}
-
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Password</label>
+                            <label className="label">Password:</label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="email"
-                                        placeholder="User Password"
+                                        placeholder="Password"
                                         name='password'
                                         value={this.state.password}
+                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">First Name:</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <p className="control">
+                                    <input className="input"
+                                        type="email"
+                                        placeholder="First Name"
+                                        name='firstName'
+                                        value={this.state.firstName}
+                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Last Name:</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <p className="control">
+                                    <input className="input"
+                                        type="email"
+                                        placeholder="Last Name"
+                                        name='lastName'
+                                        value={this.state.lastName}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
@@ -121,11 +118,8 @@ class LoginModal extends Component {
                 </div>
                 <br />
                 <span className='buttons is-right'>
-                    <Link to="/profile">
-                        {/* we will need to add and id so we know which user is using the profile page */}
-                        <button className="button is-success"
-                            onClick={() => this.handleLogin()}
-                        >Login</button>
+                    <Link to='/profile'>
+                        <button className="button is-success" onClick={() => this.handleRegister()}>Register</button>
                     </Link>
                 </span>
             </div>
@@ -135,8 +129,8 @@ class LoginModal extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (user) => dispatch(login(user))
+        register: (newUser) => dispatch(register(newUser))
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoginModal);
+export default connect(null, mapDispatchToProps)(RegisterModal);

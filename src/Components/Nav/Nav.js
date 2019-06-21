@@ -16,23 +16,8 @@ class Nav extends Component {
     }
 
 
-    // toggleRegisterModal = () => {
-    //     this.setState({
-    //         showRegisterModal: !this.showRegisterModal,
-    //     });
-    // };
-
-    // toggleLoginModal = () => {
-    //     this.setState({
-    //         showLoginModal: !this.showLoginModal,
-    //     })
-    // }
-
-
-
-
-    render(props) {
-        console.log(this.props.auth)
+    render() {
+        // console.log(this.props.auth)
         console.log(this.props.auth.uid)
         // cosnt { auth } = this.props.auth;
         // const logIn = this.props.auth.uid ?
