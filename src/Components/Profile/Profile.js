@@ -12,9 +12,9 @@ class Profile extends Component {
     render() {
         const { auth } = this.props
 
-        console.log(auth.uid)
+        // console.log(auth.uid)
 
-        if(!auth.uid ) return <Redirect to='/login' />
+        if (!auth.uid) return <Redirect to='/login' />
         // ^ 
 
         return (
@@ -26,7 +26,12 @@ class Profile extends Component {
                                 Profile
                             </h1>
                             <h2 className="subtitle">
-                                Click Here to <button className="button is-small is-rounded is-danger is-inverted is-outlined">Play</button>
+                                Click Here to
+                                <Link to='/play_game'>
+                                    <button className="button is-small is-rounded is-danger is-inverted is-outlined">
+                                        Play
+                                    </button>
+                                </Link>
                             </h2>
                         </div>
                     </div>
@@ -50,11 +55,11 @@ class Profile extends Component {
                         <Route component={GameHistory} exact path={`${this.props.match.path}/gameHistroy`} />
                         <Route component={Info} path={`${this.props.match.path}/info`} />
 
-                        <Redirect to={`${this.props.match.path}/gameHistroy`}/>
+                        <Redirect to={`${this.props.match.path}/gameHistroy`} />
 
                     </Switch>
+                </div>
             </div>
-        </div>
         )
     };
 };

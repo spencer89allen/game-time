@@ -6,6 +6,7 @@ import Main from './Components/Main/Main';
 import Profile from './Components/Profile/Profile';
 import RegisterModal from './Components/AuthComponents/RegisterModal';
 import LoginModal from './Components/AuthComponents/LoginModal';
+import GameComponent from './Components/Game/GameComponent/GameComponent';
 
 
 export default (
@@ -19,6 +20,7 @@ export default (
             <Route component={ Profile } path='/profile' />
             <Route component={ RegisterModal } path='/register' />
             <Route component={ LoginModal } path='/login' />
+            <Route component={ GameComponent } path='/play_game' />
             <Route component={ Main } path='/' />
         </Switch>
     </div>
