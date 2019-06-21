@@ -63,7 +63,7 @@ export default class GameScene extends Phaser.Scene {
       
 
       let missile = this.missile.getFirstAlive()
-      missile === null ? null : missile.body.y < 0 ? this.missile.disableMissile(missile) : null
+    //   missile === null ? null : missile.body.y < 0 ? this.missile.disableMissile(missile) : null
 
     }
   }

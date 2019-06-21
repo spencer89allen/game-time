@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import Phaser from 'phaser';
 
+import config from '../Phaser-Files/config/config';
+import Game from '../Phaser-Files/Game';
 
 
 class GameComponent extends Component {
 
+    componentDidMount() {
+        // new Phaser.Game(config);
+        new Game();
+
+    }
+
     handleQuit = () => {
         this.props.history.goBack()
     }
-
 
 
     render() {
@@ -27,10 +35,11 @@ class GameComponent extends Component {
                         </div>
                     </div>
                 </section>
-                <div className='box'>
-                    
+                <div>
+                    <div id='game'>
+                        
+                    </div>
                 </div>
-
             </div>
         )
     }
