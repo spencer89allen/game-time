@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-// import { firestoreConnect } from 'react-redux-firebase';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { firestore } from 'firebase';
 
 
-import { register } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
-
-
-class RegisterModal extends Component {
+class CreateProfile extends Component {
 
     state = {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
+        favoriteColor: '',
+        favoriteStarWars: '',
+        image: '',
     }
+
+
 
     handleInput = (name, value) => {
         this.setState({
@@ -22,120 +19,108 @@ class RegisterModal extends Component {
         })
     }
 
-    handleRegister = (e) => {
-        this.props.register(this.state)
-    }
-
     handleNeverMind = () => {
         this.props.history.goBack()
     }
 
+    // handlePost = () => {
+
+    //     if(this.state.favoriteColor || this.state.favoriteStarWars || this.state.image || === null ){
+    //         return alert('hey, fill in you info')
+    //     } else {
+    //         const info = this.state
+    //         firestore.collection('collectionName').add({
+    //             info
+    //         }).then(() => {
+    //             something
+    //         }).catch((err) => {
+    //             something
+    //         })
+    //     }
+
+    // }
+
+
     render() {
-        console.log(this.state)
         return (
             <div>
                 <section className="hero is-dark is-medium">
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Register
+                                Costomize Your Profile
                             </h1>
                         </div>
                     </div>
                 </section>
                 <div className='container'>
-
                     <br />
-
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Email:</label>
+                            <label className="label">Favorite Color: </label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <p className="control">
+                                    <input className="input"
+                                        type="favoriteColor"
+                                        placeholder="I don't know, like blue or something"
+                                        name='favoriteColor'
+                                        value={this.state.favoriteColor}
+                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Favorite Star Wars Character: </label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="email"
-                                        placeholder="Recipient email"
-                                        name='email'
-                                        value={this.state.email}
+                                        placeholder="Darth Vader is pretty cool"
+                                        name='favoriteStarWars'
+                                        value={this.state.favoriteStarWars}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
                         </div>
                     </div>
-
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Password:</label>
+                            <label className="label">Picture of you: </label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="email"
-                                        placeholder="Password"
-                                        name='password'
-                                        value={this.state.password}
+                                        placeholder="Find some kind of photo url"
+                                        name='image'
+                                        value={this.state.image}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
                         </div>
                     </div>
-
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label className="label">First Name:</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control">
-                                    <input className="input"
-                                        type="email"
-                                        placeholder="First Name"
-                                        name='firstName'
-                                        value={this.state.firstName}
-                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label className="label">Last Name:</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control">
-                                    <input className="input"
-                                        type="email"
-                                        placeholder="Last Name"
-                                        name='lastName'
-                                        value={this.state.lastName}
-                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
                 <br />
                 <span className='buttons is-right'>
-                    <button className="button is-success" onClick={() => this.handleNeverMind()}>NeverMind</button>
-                    <Link to='/profile'>
-                        <button className="button is-success" onClick={() => this.handleRegister()}>Register</button>
-                    </Link>
+
+                    <button className="button is-success" onClick={() => this.handleNeverMind()}>
+                        Never Mind
+                    </button>
+                    <button className="button is-success" onClick={() => this.handlePost()}>
+                        Post
+                    </button>
                 </span>
             </div>
         )
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        register: (newUser) => dispatch(register(newUser))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(RegisterModal);
+export default CreateProfile;

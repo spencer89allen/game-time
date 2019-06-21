@@ -102,11 +102,11 @@ export default class PreloaderScene extends Phaser.Scene {
 
   loadAssets() {
     // load assets for game
-    this.load.image('background', 'assets/background-black copy.png')
-    this.load.image('ship', 'assets/SimplePixelSpaceships_4x_Size copy.png')
-    this.load.image('missile', 'assets/SimplePixelGoodMissile_4x_Size copy.png')
-    this.load.image('astroid', 'assets/SimplePixelAstroid_4x_Size copy.png')
-    this.load.image('enemyShip', 'assets/SimplePixelBADSpaceships_4x_Size copy.png')
+    this.load.image('background', 'src/Components/Game/Phaser-Files/assets/background-black copy 2.png')
+    this.load.image('ship', 'src/Components/Game/Phaser-Files/assets/SimplePixelSpaceships_4x_Size copy 2.png')
+    this.load.image('missile', 'src/Components/Game/Phaser-Files/assets/SimplePixelGoodMissile_4x_Size copy 2.png')
+    this.load.image('astroid', 'src/Components/Game/Phaser-Files/assets/SimplePixelAstroid_4x_Size copy 2.png')
+    this.load.image('enemyShip', 'src/Components/Game/Phaser-Files/assets/SimplePixelBADSpaceships_4x_Size copy 2.png')
     
   }
 

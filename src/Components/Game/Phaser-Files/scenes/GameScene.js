@@ -45,7 +45,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.addColliders()
 
-    console.log(this.gameState.score)
+    // console.log(this.gameState.score)
   }
   
   createCursor() {

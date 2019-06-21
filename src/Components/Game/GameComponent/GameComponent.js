@@ -7,6 +7,10 @@ import Game from '../Phaser-Files/Game';
 
 class GameComponent extends Component {
 
+    state = {
+        score: 0,
+    }
+
     componentDidMount() {
         // new Phaser.Game(config);
         new Game();

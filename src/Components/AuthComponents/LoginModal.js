@@ -33,8 +33,6 @@ class LoginModal extends Component {
     
     render() {
 
-        console.log(this.props)
-
         if(this.props.auth.uid) return <Redirect to='/profile' />
             
         return (
@@ -92,6 +90,7 @@ class LoginModal extends Component {
                         <button className="button is-success" onClick={() => this.handleLogin()}>
                             Login
                         </button>
+                    
                         <div>
                             {this.props.authError ? <p>{this.props.authError}</p> : null }
                         </div>

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import GameHistory from './ComponentsProfile.js/GameHistory.js';
-import Info from './ComponentsProfile.js/Info.js';
+import GameHistory from './ComponentsProfile/GameHistory.js';
+import Info from './ComponentsProfile/Info.js';
 
 
 class Profile extends Component {
@@ -11,8 +11,6 @@ class Profile extends Component {
 
     render() {
         const { auth } = this.props
-
-        // console.log(auth.uid)
 
         if (!auth.uid) return <Redirect to='/login' />
         // ^ 
