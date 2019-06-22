@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Phaser from 'phaser';
 
-import config from '../Phaser-Files/config/config';
+// import config from '../Phaser-Files/config/config';
 import Game from '../Phaser-Files/Game';
 
 
@@ -13,7 +13,7 @@ class GameComponent extends Component {
 
     componentDidMount() {
         // new Phaser.Game(config);
-        new Game();
+        window.game = new Game();
 
     }
 
@@ -39,9 +39,11 @@ class GameComponent extends Component {
                         </div>
                     </div>
                 </section>
-                <div>
-                    <div id='game'>
-                        
+                <div className='notification'>
+                    <div className='level'>
+                        <div id='game' className='level-item has-text-centered'>
+
+                        </div>
                     </div>
                 </div>
             </div>

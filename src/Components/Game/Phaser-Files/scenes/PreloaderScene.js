@@ -1,5 +1,7 @@
 import Phaser from "phaser";
 
+import background from '../../../../assets/background-black copy 2.png';
+
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super("Preloader");
@@ -102,11 +104,11 @@ export default class PreloaderScene extends Phaser.Scene {
 
   loadAssets() {
     // load assets for game
-    this.load.image('background', 'src/Components/Game/Phaser-Files/assets/background-black copy 2.png')
-    this.load.image('ship', 'src/Components/Game/Phaser-Files/assets/SimplePixelSpaceships_4x_Size copy 2.png')
-    this.load.image('missile', 'src/Components/Game/Phaser-Files/assets/SimplePixelGoodMissile_4x_Size copy 2.png')
-    this.load.image('astroid', 'src/Components/Game/Phaser-Files/assets/SimplePixelAstroid_4x_Size copy 2.png')
-    this.load.image('enemyShip', 'src/Components/Game/Phaser-Files/assets/SimplePixelBADSpaceships_4x_Size copy 2.png')
+    this.load.image('background', 'https://s3-us-west-2.amazonaws.com/dils-game/background-black.png')
+    this.load.image('ship', 'https://dils-game.s3-us-west-2.amazonaws.com/SimplePixelSpaceships_4x_Size+copy.png')
+    this.load.image('missile', 'https://dils-game.s3-us-west-2.amazonaws.com/SimplePixelGoodMissile_4x_Size+copy.png')
+    this.load.image('astroid', 'https://dils-game.s3-us-west-2.amazonaws.com/SimplePixelAstroid_4x_Size+copy.png')
+    this.load.image('enemyShip', 'https://dils-game.s3-us-west-2.amazonaws.com/SimplePixelBADSpaceships_4x_Size+copy.png')
     
   }
 

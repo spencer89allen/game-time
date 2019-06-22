@@ -4,6 +4,7 @@ import GameScene from "./scenes/GameScene";
 import BootScene from "./scenes/BootScene";
 import PreloaderScene from "./scenes/PreloaderScene";
 import TitleScene from "./scenes/TitleScene";
+import HudDisplay from './scenes/HudDisplay';
 
 export default class Game extends Phaser.Game {
   constructor() {
@@ -14,16 +15,18 @@ export default class Game extends Phaser.Game {
     this.scene.add("Game", GameScene);
     this.scene.add("Title", TitleScene);
     this.scene.start("Boot");
+    this.scene.add('HudDisplay', HudDisplay);
   }
 }
 
 window.onload = function() {
-  window.game = new Game();
-  resize();
-  window.addEventListener("resize", resize, false);
+  // window.game = new Game();
+  // resize();
+  // window.addEventListener("resize", resize, false);
 };
 
 function resize() {
+  console.log('jggffdfd')
   let canvas = document.querySelector("canvas");
   let windowWidth = window.innerWidth;
   let windowHeight = window.innerHeight;
