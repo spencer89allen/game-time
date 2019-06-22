@@ -10,7 +10,6 @@ class AboutGame extends Component {
                 <div className="tile is-ancestor">
                     <div className="tile is-4 is-vertical is-parent">
                         <div className="tile is-child box">
-                            <p className="title">Picture</p>
                             <figure className="image is-1x1">
                                 <img className="" src="https://phaser.io/images/img.png" alt='' />
                             </figure>
@@ -19,8 +18,8 @@ class AboutGame extends Component {
                     <div className="tile is-parent">
                         <div className="tile is-child box">
                             <p className="title">Phaser 3</p>
-                            <p>Bacon ipsum dolor amet in ut boudin, cupidatat velit dolor bresaola drumstick et chicken nulla in deserunt ut. Pig labore anim cow meatball pariatur kielbasa filet mignon nisi flank brisket. Pork turducken id pig pastrami ex t-bone duis. Magna drumstick alcatra, ipsum veniam elit salami flank biltong. Venison voluptate esse pork chop tail. Andouille eu shank, laboris doner ullamco pork loin dolore lorem sunt landjaeger tongue ut tempor.
-Cillum voluptate est, ut sed sunt sint. Landjaeger nostrud deserunt ad ham hock ea chuck jerky chicken et. Tenderloin meatball salami short loin, veniam pork belly pig deserunt ham elit ea lorem pork loin filet mignon. Ex t-bone chicken tempor occaecat aliqua. T-bone non commodo, chuck exercitation rump velit doner labore occaecat venison.</p>
+                            <p>Phaser is a free software 2D game framework for making HTML5 games for desktop and mobile. It is developed by Photon Storm.
+                            Phaser uses both a Canvas and WebGL renderer internally and can automatically swap between them based on browser support. This allows for fast rendering across desktop and mobile. It uses the Pixi.js library for rendering. Games can be compiled to iOS, Android and native desktop apps via 3rd party tools like Apache Cordova.</p>
                         </div>
                     </div>
                 </div>
