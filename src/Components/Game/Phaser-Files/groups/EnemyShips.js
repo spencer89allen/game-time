@@ -23,11 +23,13 @@ export default class EnemyShips extends Phaser.Physics.Arcade.Group {
 
             this.scene.physics.add.existing(enemyShip)
 
-            enemyShip.body.setSize(10, 10)
+            enemyShip.body.setSize(25, 25)
 
             enemyShip.body.setEnable(true);
 
             enemyShip.body.setVelocityY(Phaser.Math.RND.between(35, 50))
+
+            enemyShip.setScale(0.8)
         }
     }
 

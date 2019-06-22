@@ -8,12 +8,28 @@ import Info from './ComponentsProfile/Info.js';
 
 class Profile extends Component {
 
+    state = {
+        uid: '',
+        firstName: '',
+        info: '',
+        image: '',
+    }
 
-    render() {
+    componentDidMount() {
         const { auth } = this.props
 
+        this.setState({
+            uid: auth.uid
+        })
+    }
+
+
+    render() {
+
+        const { auth } = this.props
         if (!auth.uid) return <Redirect to='/login' />
-        // ^ 
+        
+        console.log('state:',this.state.uid)
 
         return (
             <div className=''>
@@ -21,7 +37,7 @@ class Profile extends Component {
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Profile
+                                Welcome {this.state.firstName}
                             </h1>
                             <h2 className="subtitle">
                                 Click Here to
@@ -70,3 +86,12 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Profile);
+
+
+// firestore.collection('collectionName').add({
+    //             info
+    //         }).then(() => {
+    //             something
+    //         }).catch((err) => {
+    //             something
+    //         })

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { firestore } from 'firebase';
 
 
 class CreateProfile extends Component {
 
     state = {
-        favoriteColor: '',
-        favoriteStarWars: '',
+        youself: '',
         image: '',
     }
 
@@ -20,13 +18,13 @@ class CreateProfile extends Component {
     }
 
     handleNeverMind = () => {
-        this.props.history.goBack()
+        this.props.history.push('/')
     }
 
     // handlePost = () => {
 
     //     if(this.state.favoriteColor || this.state.favoriteStarWars || this.state.image || === null ){
-    //         return alert('hey, fill in you info')
+    //         return alert('hey, fill in your info')
     //     } else {
     //         const info = this.state
     //         firestore.collection('collectionName').add({
@@ -38,6 +36,8 @@ class CreateProfile extends Component {
     //         })
     //     }
 
+    //         this.props.history.push('/profile')
+
     // }
 
 
@@ -48,7 +48,7 @@ class CreateProfile extends Component {
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Costomize Your Profile
+                                Costomize Your Profile to Make This a Full Stack Web App
                             </h1>
                         </div>
                     </div>
@@ -57,33 +57,16 @@ class CreateProfile extends Component {
                     <br />
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Favorite Color: </label>
+                            <label className="label">Say Something About youself: </label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="favoriteColor"
-                                        placeholder="I don't know, like blue or something"
-                                        name='favoriteColor'
-                                        value={this.state.favoriteColor}
-                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label className="label">Favorite Star Wars Character: </label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control">
-                                    <input className="input"
-                                        type="email"
-                                        placeholder="Darth Vader is pretty cool"
-                                        name='favoriteStarWars'
-                                        value={this.state.favoriteStarWars}
+                                        placeholder="Whatever you want"
+                                        name='youself'
+                                        value={this.state.youself}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
@@ -110,13 +93,8 @@ class CreateProfile extends Component {
 
                 <br />
                 <span className='buttons is-right'>
-
-                    <button className="button is-success" onClick={() => this.handleNeverMind()}>
-                        Never Mind
-                    </button>
-                    <button className="button is-success" onClick={() => this.handlePost()}>
-                        Post
-                    </button>
+                    <button className="button is-success" onClick={() => this.handleNeverMind()}>NeverMind</button>
+                    <button className="button is-success" onClick={() => this.handlePost()}>Post</button>
                 </span>
             </div>
         )

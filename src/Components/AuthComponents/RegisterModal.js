@@ -24,10 +24,11 @@ class RegisterModal extends Component {
 
     handleRegister = (e) => {
         this.props.register(this.state)
+        this.props.history.push('/create_profile')
     }
 
     handleNeverMind = () => {
-        this.props.history.goBack()
+        this.props.history.push('/')
     }
 
     render() {
@@ -123,9 +124,7 @@ class RegisterModal extends Component {
                 <br />
                 <span className='buttons is-right'>
                     <button className="button is-success" onClick={() => this.handleNeverMind()}>NeverMind</button>
-                    <Link to='/profile'>
-                        <button className="button is-success" onClick={() => this.handleRegister()}>Register</button>
-                    </Link>
+                    <button className="button is-success" onClick={() => this.handleRegister()}>Register</button>
                 </span>
             </div>
         )

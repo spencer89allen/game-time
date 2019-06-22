@@ -7,7 +7,7 @@ import Profile from './Components/Profile/Profile';
 import RegisterModal from './Components/AuthComponents/RegisterModal';
 import LoginModal from './Components/AuthComponents/LoginModal';
 import GameComponent from './Components/Game/GameComponent/GameComponent';
-import CreateProfile from './Components/Profile/ComponentsProfile/CreateProfile';
+import CreateProfile from './Components/AuthComponents/CreateProfile';
 
 
 export default (

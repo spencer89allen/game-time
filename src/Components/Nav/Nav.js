@@ -18,7 +18,7 @@ class Nav extends Component {
 
     render() {
         // console.log(this.props.auth)
-        console.log(this.props.auth.uid)
+        // console.log(this.props.auth.uid)
         // cosnt { auth } = this.props.auth;
         // const logIn = this.props.auth.uid ?
         return (
