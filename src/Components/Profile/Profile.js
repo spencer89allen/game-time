@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import firebase from 'firebase';
+import Axios from 'axios';
 
 import GameHistory from './ComponentsProfile/GameHistory.js';
 import Info from './ComponentsProfile/Info.js';
@@ -17,10 +19,13 @@ class Profile extends Component {
 
     componentDidMount() {
         const { auth } = this.props
+        
+        
+       Axios.get(`https://[game-time].firebaseio.com/users/` + auth.uid + `.json?auth=0tbbU1LU3eNoZilTJ3At0gZUHdMpIpm4j9khJok3`).then((res) => {
+           console.log(res)
 
-        this.setState({
-            uid: auth.uid
-        })
+       })
+        //be sure to hide the secret in an git ignore file
     }
 
 
@@ -28,8 +33,9 @@ class Profile extends Component {
 
         const { auth } = this.props
         if (!auth.uid) return <Redirect to='/login' />
-        
-        console.log('state:',this.state.uid)
+
+        // console.log('state.uid:',this.state.uid)
+        // console.log(auth)
 
         return (
             <div className=''>
@@ -79,7 +85,7 @@ class Profile extends Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.rootReducer.firebase.auth)
+    // console.log(state.rootReducer.firebase.auth)
     return {
         auth: state.rootReducer.firebase.auth
     }

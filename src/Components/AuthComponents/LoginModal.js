@@ -17,7 +17,6 @@ class LoginModal extends Component {
     }
 
 
-
     handleInput = (name, value) => {
         this.setState({
             [name]: value,
@@ -107,7 +106,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.rootReducer.firebase.auth)
+    // console.log(state.rootReducer.firebase.auth)
     return {
         authError: state.rootReducer.firebase.auth.authError,
         auth: state.rootReducer.firebase.auth
