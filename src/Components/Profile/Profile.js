@@ -8,6 +8,7 @@ import GameHistory from './ComponentsProfile/GameHistory.js';
 import Info from './ComponentsProfile/Info.js';
 
 
+
 class Profile extends Component {
 
     state = {
@@ -17,16 +18,18 @@ class Profile extends Component {
         image: '',
     }
 
-    componentDidMount() {
-        const { auth } = this.props
+    // componentDidMount() {
+    //     const { auth } = this.props
         
-        
-       Axios.get(`https://[game-time].firebaseio.com/users/` + auth.uid + `.json?auth=0tbbU1LU3eNoZilTJ3At0gZUHdMpIpm4j9khJok3`).then((res) => {
-           console.log(res)
+    //     console.log('uid:', auth.uid)
 
-       })
-        //be sure to hide the secret in an git ignore file
-    }
+    //    Axios.get(`https://game-time-f20d3.firebaseio.com/users/` + auth.uid + `/firstName.json?auth=`).then((response) => {
+    //        console.log(response)
+    //    }).catch((err) => {
+    //        console.log(err)
+    //    })
+    //     //be sure to hide the secret in an git ignore file
+    // }
 
 
     render() {
@@ -35,7 +38,7 @@ class Profile extends Component {
         if (!auth.uid) return <Redirect to='/login' />
 
         // console.log('state.uid:',this.state.uid)
-        // console.log(auth)
+        console.log('auth:', auth)
 
         return (
             <div className=''>

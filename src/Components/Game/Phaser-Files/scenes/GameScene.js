@@ -40,7 +40,6 @@ export default class GameScene extends Phaser.Scene {
 
     this.addColliders()
 
-    // console.log(this.gameState.score)
   }
   
   createCursor() {
@@ -76,6 +75,7 @@ export default class GameScene extends Phaser.Scene {
       this.input.on('pointerup', () =>{
         this.events.emit('resetScore')
       this.scene.restart();
+       // this.scene.destroy()
       });
 
     })

@@ -24,8 +24,6 @@ export default class Ship extends Phaser.GameObjects.Sprite {
 
     update(time, delta, cursors) {
 
-        
-
         if (cursors.left.isDown) {
             console.log('left')
             this.body.setVelocityX(-100)

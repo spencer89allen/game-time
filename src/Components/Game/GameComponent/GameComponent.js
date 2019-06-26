@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Phaser from 'phaser';
+import { Router } from 'react-router-dom';
 
 // import config from '../Phaser-Files/config/config';
 import Game from '../Phaser-Files/Game';
@@ -23,6 +24,7 @@ class GameComponent extends Component {
 
 
     render() {
+        console.log(this.props.history)
         return (
             <div>
                 <section className="hero is-dark">
