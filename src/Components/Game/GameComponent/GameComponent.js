@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Phaser from 'phaser';
 import { Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-// import config from '../Phaser-Files/config/config';
+
 import Game from '../Phaser-Files/Game';
 
 
@@ -53,4 +54,10 @@ class GameComponent extends Component {
     }
 }
 
-export default GameComponent;
+const mapStateToProps = (state) => {
+    // console.log(state.rootReducer.firebase.auth)
+    return state
+    
+}
+
+export default connect(mapStateToProps)(GameComponent);

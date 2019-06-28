@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { Link, NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import firebase from 'firebase';
-import Axios from 'axios';
 
 import GameHistory from './ComponentsProfile/GameHistory.js';
 import Info from './ComponentsProfile/Info.js';
@@ -18,27 +16,15 @@ class Profile extends Component {
         image: '',
     }
 
-    // componentDidMount() {
-    //     const { auth } = this.props
-        
-    //     console.log('uid:', auth.uid)
+    componentWillMount() {
 
-    //    Axios.get(`https://game-time-f20d3.firebaseio.com/users/` + auth.uid + `/firstName.json?auth=`).then((response) => {
-    //        console.log(response)
-    //    }).catch((err) => {
-    //        console.log(err)
-    //    })
-    //     //be sure to hide the secret in an git ignore file
-    // }
+    }
 
 
     render() {
-
-        const { auth } = this.props
-        if (!auth.uid) return <Redirect to='/login' />
-
-        // console.log('state.uid:',this.state.uid)
-        console.log('auth:', auth)
+        console.log(this.props.match.params)
+        console.log(this.props.authReducer.user)
+        if(this.props.user) return <Redirect to='/login' />
 
         return (
             <div className=''>
@@ -46,7 +32,7 @@ class Profile extends Component {
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Welcome {this.state.firstName}
+                                Welcome {}
                             </h1>
                             <h2 className="subtitle">
                                 Click Here to
@@ -61,15 +47,18 @@ class Profile extends Component {
                 </section>
                 <div className="tabs is-medium is-centered">
                     <ul>
-                        <li className="is-active">
-                            <Link to={`${this.props.match.url}/gameHistroy`}>
+                        <li>
+                            <NavLink to={`${this.props.match.url}/gameHistroy`}
+                                activeClassName='is-active'>
                                 <p>Game History</p>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to={`${this.props.match.url}/info`}>
+                            <NavLink to={`${this.props.match.url}/info`}
+                                activeClassName='is-active'>
                                 <p>Info</p>
-                            </Link>
+                            </NavLink>
+                            {/* in styling specify what the active tab looks like */}
                         </li>
                     </ul>
                 </div>
@@ -89,18 +78,8 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
     // console.log(state.rootReducer.firebase.auth)
-    return {
-        auth: state.rootReducer.firebase.auth
-    }
+    return state
+    
 }
 
 export default connect(mapStateToProps)(Profile);
-
-
-// firestore.collection('collectionName').add({
-    //             info
-    //         }).then(() => {
-    //             something
-    //         }).catch((err) => {
-    //             something
-    //         })

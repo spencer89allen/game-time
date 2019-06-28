@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
-
-import { logout } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
-
+import { logout } from '../../redux/authReducer';
 
 class Nav extends Component {
-
-
-    state = {
-        showRegisterModal: false,
-        showLoginModal: false,
-        login: false,
+    
+    
+    handleLogout() {
+        axios.get(`/auth/logout`).then((res) => {
+            this.props.logout()
+        })
     }
 
-
     render() {
-        // console.log(this.props.auth)
-        // console.log(this.props.auth.uid)
-        // cosnt { auth } = this.props.auth;
-        // const logIn = this.props.auth.uid ?
+       console.log(this.props.authReducer.user)
         return (
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -32,7 +27,7 @@ class Nav extends Component {
                         </div>
                     </div>
                     {
-                        this.props.auth.uid ?
+                        this.props.authReducer.user ?
                             (
                                 <div id="navbarBasicExample" className="navbar-menu">
                                     <div className="navbar-end">
@@ -79,18 +74,9 @@ class Nav extends Component {
     };
 };
 
-const mapStateToProps = (state) => {
-    // console.log(state.rootReducer)
-    return {
-        auth: state.rootReducer.firebase.auth
-    }
+function mapStateToProps(state) {
+    return state
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        logout: () => dispatch(logout())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, { logout })(Nav);
 

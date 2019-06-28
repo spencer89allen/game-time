@@ -1,0 +1,1 @@
+SELECT score, date FROM game_scores;

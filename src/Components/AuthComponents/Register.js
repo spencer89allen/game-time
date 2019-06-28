@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -7,13 +8,12 @@ import { Link } from 'react-router-dom';
 import { register } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
 
 
-class RegisterModal extends Component {
+class Register extends Component {
 
     state = {
         email: '',
         password: '',
-        firstName: '',
-        lastName: '',
+        username: '',
     }
 
     handleInput = (name, value) => {
@@ -23,8 +23,14 @@ class RegisterModal extends Component {
     }
 
     handleRegister = (e) => {
-        this.props.register(this.state)
-        this.props.history.push('/create_profile')
+        if ( this.state.username.length === 0 || this.state.password.length === 0 ) {
+            alert('Please fill in Username, and Password input fields')
+        } else {
+            const { email, password, username } = this.state;
+            const body = { email, password, username };
+
+            axios.post(`/auth/register`, body ).then()
+        }
     }
 
     handleNeverMind = () => {
@@ -86,34 +92,16 @@ class RegisterModal extends Component {
 
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">First Name:</label>
+                            <label className="label">Username:</label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
                                         type="email"
-                                        placeholder="First Name"
-                                        name='firstName'
-                                        value={this.state.firstName}
-                                        onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label className="label">Last Name:</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control">
-                                    <input className="input"
-                                        type="email"
-                                        placeholder="Last Name"
-                                        name='lastName'
-                                        value={this.state.lastName}
+                                        placeholder="Username"
+                                        name='username'
+                                        value={this.state.username}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
@@ -131,10 +119,11 @@ class RegisterModal extends Component {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        register: (newUser) => dispatch(register(newUser))
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         register: (newUser) => dispatch(register(newUser))
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(RegisterModal);
+// export default connect(null, mapDispatchToProps)(RegisterModal);
+export default Register;

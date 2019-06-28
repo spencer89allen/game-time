@@ -4,8 +4,10 @@ import { Switch, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
 import Main from './Components/Main/Main';
 import Profile from './Components/Profile/Profile';
-import RegisterModal from './Components/AuthComponents/RegisterModal';
-import LoginModal from './Components/AuthComponents/LoginModal';
+// import RegisterModal from './Components/AuthComponents/RegisterModal';
+// import LoginModal from './Components/AuthComponents/LoginModal';
+import Login from './Components/AuthComponents/Login';
+import Register from './Components/AuthComponents/Register'
 import GameComponent from './Components/Game/GameComponent/GameComponent';
 import CreateProfile from './Components/AuthComponents/CreateProfile';
 
@@ -18,9 +20,9 @@ export default (
         
         <br />
         <Switch>
-            <Route component={ Profile } path='/profile' />
-            <Route component={ RegisterModal } path='/register' />
-            <Route component={ LoginModal } path='/login' />
+            <Route component={ Profile } path='/profile/:username' />
+            <Route component={ Register } path='/register' />
+            <Route component={ Login } path='/login' />
             <Route component={ GameComponent } path='/play_game' />
             <Route component={ CreateProfile } path='/create_profile' />
 
