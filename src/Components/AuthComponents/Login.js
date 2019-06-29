@@ -37,6 +37,10 @@ class Login extends Component {
             })
         }
     }
+
+    handleNeverMind = () => {
+        this.props.history.goBack()
+    }
     
     
     render() {
@@ -80,7 +84,7 @@ class Login extends Component {
                             <div className="field">
                                 <p className="control">
                                     <input className="input"
-                                        type="email"
+                                        type="password"
                                         placeholder="User Password"
                                         name='password'
                                         value={this.state.password}
@@ -93,14 +97,14 @@ class Login extends Component {
                 
                 <br />
                 <span className='buttons is-right'>
+                    <button className="button is-success" onClick={() => this.handleNeverMind()}>NeverMind</button>  
+                    <button className="button is-success" onClick={() => this.handleLogin()}>
+                        Login
+                    </button>
                     
-                        <button className="button is-success" onClick={() => this.handleLogin()}>
-                            Login
-                        </button>
-                    
-                        <div>
-                            {this.props.authError ? <p>{this.props.authError}</p> : null }
-                        </div>
+                    <div>
+                        {this.props.authError ? <p>{this.props.authError}</p> : null }
+                    </div>
                 </span>
             </div>
         )

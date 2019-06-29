@@ -7,6 +7,7 @@ var LocalStrategy = require('passport-local');
 var bcrypt = require('bcrypt');
 
 var profileCtrl = require('./profileController')
+var gameCtrl = require('./gameConntroller');
 
 
 require('dotenv').config({ path: __dirname + '/.env' });
@@ -155,6 +156,9 @@ app.get(`/me`, (req, res) => {
 //profile endpoints
 app.post(`/profile/info`, profileCtrl.addProfile)
 app.post(`/profile/get`, profileCtrl.getProfile)
+
+//game endpoints
+app.post(`/game/score`, gameCtrl.postScore)
 
 
 
