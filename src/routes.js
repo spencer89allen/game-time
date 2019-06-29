@@ -24,7 +24,7 @@ export default (
             <Route component={ Register } path='/register' />
             <Route component={ Login } path='/login' />
             <Route component={ GameComponent } path='/play_game' />
-            <Route component={ CreateProfile } path='/create_profile' />
+            <Route component={ CreateProfile } path='/create_profile/:username' />
 
             <Route component={ Main } path='/' />
         </Switch>

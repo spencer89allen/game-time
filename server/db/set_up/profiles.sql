@@ -1,6 +1,6 @@
 CREATE TABLE profiles (
     id SERIAL PRIMARY KEY,
-    user_id int REFERENCES users(id),
+    username text,
     user_info text,
     image text
 );

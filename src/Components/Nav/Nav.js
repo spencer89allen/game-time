@@ -15,7 +15,7 @@ class Nav extends Component {
     }
 
     render() {
-       console.log(this.props.authReducer.user)
+    //    console.log(this.props.authReducer.user)
         return (
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">

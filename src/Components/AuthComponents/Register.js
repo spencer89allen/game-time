@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import { firestoreConnect } from 'react-redux-firebase';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 
 
-import { register } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
+// import { register } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js';
 
 
 class Register extends Component {
@@ -29,7 +29,10 @@ class Register extends Component {
             const { email, password, username } = this.state;
             const body = { email, password, username };
 
-            axios.post(`/auth/register`, body ).then()
+            axios.post(`/auth/register`, body ).then((res) => {
+                console.log(res)
+                
+            })
         }
     }
 
@@ -125,5 +128,5 @@ class Register extends Component {
 //     }
 // }
 
-// export default connect(null, mapDispatchToProps)(RegisterModal);
+// export default connect(null, { register })(Register);
 export default Register;

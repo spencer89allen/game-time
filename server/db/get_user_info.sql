@@ -1,2 +1,2 @@
-SELECT user_id, user_info, image FROM profiles
-    WHERE id = $1;
+SELECT username, user_info, image FROM profiles
+    WHERE username = $1;

@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import { firestore } from 'firebase';
+// import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Axios from 'axios';
+
 
 
 class CreateProfile extends Component {
 
     state = {
-        youself: '',
+        username: '',
+        userInfo: '',
         image: '',
     }
 
+    componentWillMount() {
+        this.setState({
+            username: this.props.match.params.username
+        })
+    }
 
 
     handleInput = (name, value) => {
@@ -18,30 +27,25 @@ class CreateProfile extends Component {
     }
 
     handleNeverMind = () => {
-        this.props.history.push('/')
+        this.props.history.goBack()
     }
 
-    // handlePost = () => {
+    handlePost = () => {
 
-    //     if(this.state.favoriteColor || this.state.favoriteStarWars || this.state.image || === null ){
-    //         return alert('hey, fill in your info')
-    //     } else {
-    //         const info = this.state
-    //         firestore.collection('collectionName').add({
-    //             info
-    //         }).then(() => {
-    //             something
-    //         }).catch((err) => {
-    //             something
-    //         })
-    //     }
+        const { username, userInfo, image } = this.state
+        const body = { username, userInfo, image }
+ 
+        Axios.post(`/profile/info`, body).then(() => {
+            this.props.history.push('/profile/' + this.state.username)
+        })
 
-    //         this.props.history.push('/profile')
 
-    // }
+    }
 
 
     render() {
+        // console.log(this.props.match.params.username)
+        // console.log(this.state.username)
         return (
             <div>
                 <section className="hero is-dark is-medium">
@@ -57,16 +61,16 @@ class CreateProfile extends Component {
                     <br />
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Say Something About youself: </label>
+                            <label className="label">Say Something About Yourself: </label>
                         </div>
                         <div className="field-body">
                             <div className="field">
                                 <p className="control">
-                                    <input className="input"
+                                    <textarea className="textarea"
                                         type="favoriteColor"
                                         placeholder="Whatever you want"
-                                        name='youself'
-                                        value={this.state.youself}
+                                        name='userInfo'
+                                        value={this.state.userInfo}
                                         onChange={(e) => this.handleInput(e.target.name, e.target.value)} />
                                 </p>
                             </div>
@@ -74,7 +78,7 @@ class CreateProfile extends Component {
                     </div>
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">
-                            <label className="label">Picture of you: </label>
+                            <label className="label">Picture: </label>
                         </div>
                         <div className="field-body">
                             <div className="field">
@@ -101,4 +105,9 @@ class CreateProfile extends Component {
     };
 };
 
-export default CreateProfile;
+function mapStateToProps(state) {
+    return state
+}
+
+export default connect(mapStateToProps)(CreateProfile);
+// export default CreateProfile;

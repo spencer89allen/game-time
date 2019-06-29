@@ -6,6 +6,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var bcrypt = require('bcrypt');
 
+var profileCtrl = require('./profileController')
+
 
 require('dotenv').config({ path: __dirname + '/.env' });
 
@@ -126,7 +128,7 @@ passport.deserializeUser((id, done) => {
 
 //ENDPOINTS
 
-//auth endpoint
+//auth endpoints
 app.post(`/auth/register`, passport.authenticate('register', { failWithError: true }), (req, res) => {
     const { user } = req;
     res.send(user);
@@ -148,6 +150,13 @@ app.get(`/auth/logout`, (req, res) => {
 app.get(`/me`, (req, res) => {
     res.send(req.user);
 });
+
+
+//profile endpoints
+app.post(`/profile/info`, profileCtrl.addProfile)
+app.post(`/profile/get`, profileCtrl.getProfile)
+
+
 
 //PORT STUFF
 var Port = 4545;

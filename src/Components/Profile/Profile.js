@@ -9,21 +9,30 @@ import Info from './ComponentsProfile/Info.js';
 
 class Profile extends Component {
 
-    state = {
+    constructor(props) {
+        super(props)
+        
+        this.state = {
         uid: '',
         firstName: '',
         info: '',
         image: '',
     }
+}
 
     componentWillMount() {
-
+        this.setState({
+            // uid: ,
+            firstName: this.props.match.params.username,
+        })
     }
+    // + this.props.params
 
 
     render() {
-        console.log(this.props.match.params)
-        console.log(this.props.authReducer.user)
+        // console.log(this.props.match.params.username)
+        // console.log(this.state.firstName)
+        // console.log(this.props.authReducer.user)
         if(this.props.user) return <Redirect to='/login' />
 
         return (
@@ -32,7 +41,7 @@ class Profile extends Component {
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Welcome {}
+                                Welcome {`${this.state.firstName}`}
                             </h1>
                             <h2 className="subtitle">
                                 Click Here to
