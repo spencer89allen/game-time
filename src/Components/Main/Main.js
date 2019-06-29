@@ -12,6 +12,7 @@ class Main extends Component {
 
     render() {
         // console.log(this.props.match.path)
+        console.log(this.props)
         return (
             <div>
                 <section className="hero is-dark is-medium">
@@ -20,12 +21,12 @@ class Main extends Component {
                             <h1 className="title">
                                 Game Time
                             </h1>
-                            <h2 className="subtitle">
+                            {/* <h2 className="subtitle">
                                 <Link to='/login'>
                                     <button className="button is-small is-rounded is-danger is-inverted is-outlined">Log In</button>
                                 </Link>
                                 or <button className="button is-small is-rounded is-danger is-inverted is-outlined">Register</button> to Play
-                            </h2>
+                            </h2> */}
                         </div>
                     </div>
                 </section>

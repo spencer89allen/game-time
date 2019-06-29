@@ -18,15 +18,15 @@ class AboutUs extends Component {
                     <div className="tile is-parent">
                         <div className="tile is-child box">
                             <p className="title">Drew</p>
-                            <p>Bacon ipsum dolor amet chicken pork chop landjaeger shankle. Pork chicken brisket meatloaf short ribs prosciutto pork chop tenderloin ham pork belly hamburger. Kevin pork belly brisket jerky sirloin alcatra ham hock prosciutto. Swine venison sausage turkey.</p>
+                            <p>Happy go lucky IT guy that is proudly Italian.</p>
                         </div>
                     </div>
                 </div>
                 <div className="tile is-ancestor">
                     <div className="tile is-parent">
                         <div className="tile is-child box">
-                            <p className="title">Issac</p>
-                            <p>Bacon ipsum dolor amet chicken pork chop landjaeger shankle. Pork chicken brisket meatloaf short ribs prosciutto pork chop tenderloin ham pork belly hamburger. Kevin pork belly brisket jerky sirloin alcatra ham hock prosciutto. Swine venison sausage turkey.</p>
+                            <p className="title">Isaac</p>
+                            <p>I killed a man off of I-21</p>
                         </div>
                     </div>
                     <div className="tile is-4 is-vertical is-parent">
@@ -48,7 +48,7 @@ class AboutUs extends Component {
                     <div className="tile is-parent">
                         <div className="tile is-child box">
                             <p className="title">Lahvjal</p>
-                            <p>Bacon ipsum dolor amet chicken pork chop landjaeger shankle. Pork chicken brisket meatloaf short ribs prosciutto pork chop tenderloin ham pork belly hamburger. Kevin pork belly brisket jerky sirloin alcatra ham hock prosciutto. Swine venison sausage turkey.</p>
+                            <p>coding is FUN!!!!!!    only if you get it right</p>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ class AboutUs extends Component {
                     <div className="tile is-parent">
                         <div className="tile is-child box">
                             <p className="title">Spencer</p>
-                            <p>Bacon ipsum dolor amet chicken pork chop landjaeger shankle. Pork chicken brisket meatloaf short ribs prosciutto pork chop tenderloin ham pork belly hamburger. Kevin pork belly brisket jerky sirloin alcatra ham hock prosciutto. Swine venison sausage turkey.</p>
+                            <p>The Man, The Myth, The Legend.</p>
                         </div>
                     </div>
                     <div className="tile is-4 is-vertical is-parent">

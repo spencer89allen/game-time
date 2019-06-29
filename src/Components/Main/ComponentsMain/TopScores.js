@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 
 class TopScores extends Component {
 
+    state = {
+        topTenScores: []
+    }
+
+    componentWillMount() {
+        Axios.get(`/score/topTen`).then((res) => {
+            this.setState({
+                topTenScores: res.data
+            })
+        })
+    }
+
 
     render() {
+        console.log(this.state)
         return (
             <div className='box'>
                 <table className="table is-striped is-fullwidth">
@@ -17,66 +31,17 @@ class TopScores extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Somebody</td>
-                            <td>38</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Somebody Else</td>
-                            <td>37</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Somebody Else</td>
-                            <td>36</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Somebody Else</td>
-                            <td>35</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Somebody Else</td>
-                            <td>34</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Somebody Else</td>
-                            <td>33</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>7</th>
-                            <td>Somebody Else</td>
-                            <td>32</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>8</th>
-                            <td>Somebody Else</td>
-                            <td>31</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>9</th>
-                            <td>Somebody Else</td>
-                            <td>30</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>10</th>
-                            <td>Somebody Else</td>
-                            <td>29</td>
-                            <td>0/0/0</td>
-                        </tr>
+                        {this.state.topTenScores.map(entry => {
+                            return(
+                                <tr key={entry.id}>
+                                    <th>{this.state.topTenScores.indexOf(entry) + 1}</th>
+                                    <td>{entry.username}</td>
+                                    <td>{entry.score}</td>
+                                    <td>{entry.date}</td>
+                                </tr>
+                            )
+                        })}
+                        
                     </tbody>
                 </table>
 

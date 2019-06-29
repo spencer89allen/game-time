@@ -160,6 +160,9 @@ app.post(`/profile/get`, profileCtrl.getProfile)
 //game endpoints
 app.post(`/game/score`, gameCtrl.postScore)
 
+//score endpoints
+app.get(`/score/topTen`, gameCtrl.getTopTen)
+
 
 
 //PORT STUFF

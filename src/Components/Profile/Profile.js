@@ -30,10 +30,11 @@ class Profile extends Component {
 
 
     render() {
-        console.log(this.props.match.params.username)
+        // console.log(this.props.match.params.username)
         // console.log(this.state.firstName)
         // console.log(this.props.authReducer.user)
-        if(this.props.user) return <Redirect to='/login' />
+        console.log('user:',this.props)
+        if(!this.props.authReducer.user) return <Redirect to='/login' />
 
         return (
             <div className=''>

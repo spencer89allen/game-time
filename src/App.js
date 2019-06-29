@@ -11,7 +11,9 @@ class App extends Component {
 
   componentWillMount() {
     axios.get('/me').then((res) => {
-      this.props.login(res.data)
+      if(res.data) {
+        this.props.login(res.data)
+      } 
     })
   }
 
