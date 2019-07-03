@@ -1,14 +1,16 @@
 import Phaser from "phaser";
 
-import background from '../../../../assets/background-black copy 2.png';
+// import background from '../../../../assets/background-black copy 2.png';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super("Preloader");
   }
 
-  init() {
+  init(data) {
+    console.log(data)
     this.readyCount = 1;
+    this.data = data;
   }
 
   preload() {
@@ -115,7 +117,7 @@ export default class PreloaderScene extends Phaser.Scene {
   ready() {
     this.readyCount++;
     if (this.readyCount === 2) {
-      this.scene.start("Title");
+      this.scene.start("Title", this.data);
     }
   }
 }

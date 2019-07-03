@@ -46,7 +46,7 @@ class Profile extends Component {
                             </h1>
                             <h2 className="subtitle">
                                 Click Here to
-                                <Link to={`/play_issac_game/${this.props.match.params.username}`}>
+                                <Link to={`/play_game/${this.props.match.params.username}`}>
                                     <button className="button is-small is-rounded is-danger is-inverted is-outlined">
                                         Play
                                     </button>

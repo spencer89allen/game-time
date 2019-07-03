@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import axios from 'axios';
 
 
 export default class HudDisplay extends Phaser.Scene {
@@ -20,7 +21,6 @@ export default class HudDisplay extends Phaser.Scene {
     }
 
     create() {
-
         this.GameScene = this.scene.get('Game')
         this.gameState.scoreText = this.add.text(25, 350, 'Score: 0', { fontSize: '15px', fill: '#ffffff' });
 
@@ -28,6 +28,18 @@ export default class HudDisplay extends Phaser.Scene {
             this.gameState.score += 10;
             this.gameState.scoreText.setText(`Score: ${this.gameState.score}`);
             
+        })
+
+        this.GameScene.events.on('setScore', (player) => {
+            const { username } = player
+            const { score } = this.gameState
+            const body = { username, score}
+            
+            axios.post(`/game/score`, body).then(res => {
+         
+              console.log(res)
+              console.log(res.data)
+            })
         })
 
         this.GameScene.events.on('resetScore', () => {

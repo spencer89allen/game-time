@@ -97,8 +97,8 @@ class Login extends Component {
                 
                 <br />
                 <span className='buttons is-right'>
-                    <button className="button is-success" onClick={() => this.handleNeverMind()}>NeverMind</button>  
-                    <button className="button is-success" onClick={() => this.handleLogin()}>
+                    <button className="button is-danger" onClick={() => this.handleNeverMind()}>NeverMind</button>  
+                    <button className="button is-warning" onClick={() => this.handleLogin()}>
                         Login
                     </button>
                     

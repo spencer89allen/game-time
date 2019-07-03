@@ -8,7 +8,8 @@ export default class BootScene extends Phaser.Scene {
     this.load.image("phaser-logo", "src/Components/Game/Phaser-Files/assets/logo copy.png");
   }
 
-  create() {
-    this.scene.start("Preloader");
+  create(data) {
+    console.log(data)
+    this.scene.start("Preloader", data);
   }
 }

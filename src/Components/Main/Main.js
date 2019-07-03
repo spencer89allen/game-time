@@ -49,7 +49,7 @@ class Main extends Component {
                         </li>
                         <li>
                             <Link to={`/something`}>
-                                <p>Something Else</p>
+                                <p>Free Play</p>
                             </Link>
                         </li>
                     </ul>

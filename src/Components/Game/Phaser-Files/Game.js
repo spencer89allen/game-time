@@ -7,14 +7,14 @@ import TitleScene from "./scenes/TitleScene";
 import HudDisplay from './scenes/HudDisplay';
 
 export default class Game extends Phaser.Game {
-  constructor() {
+  constructor(username) {
     super(config);
 
     this.scene.add("Boot", BootScene);
     this.scene.add("Preloader", PreloaderScene);
     this.scene.add("Game", GameScene);
     this.scene.add("Title", TitleScene);
-    this.scene.start("Boot");
+    this.scene.start("Boot", { username });
     this.scene.add('HudDisplay', HudDisplay);
   }
 }
