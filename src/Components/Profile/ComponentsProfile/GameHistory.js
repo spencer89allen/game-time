@@ -5,13 +5,13 @@ import Axios from 'axios';
 class GameHistory extends Component {
 
     state = {
-        gameHistory: ''
+        gameHistory: []
     }
 
     
     componentWillMount() {
 
-        const { username } = this.props.match.params.username
+        const { username } = this.props.match.params
         const body =  { username }
 
         Axios.post(`/profile/gameHistory/get`, body).then((res) => {
@@ -22,32 +22,30 @@ class GameHistory extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.username)
+       console.log(this.state)
         return(
             <div className='box'>
-                {/* <table className="table is-striped is-fullwidth">
+                <table className="table is-striped is-fullwidth">
                     <thead>
                         <tr>
-                            <th>Rank</th>
-                            <th>User</th>
-                            <th>Score</th>
+                            <th>Game</th>
                             <th>Date</th>
+                            <th>Score</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.topTenScores.map(entry => {
+                        {this.state.gameHistory.map(entry => {
                             return(
                                 <tr key={entry.id}>
-                                    <th>{this.state.topTenScores.indexOf(entry) + 1}</th>
-                                    <td>{entry.username}</td>
-                                    <td>{entry.score}</td>
+                                    <th>{this.state.gameHistory.indexOf(entry) + 1}</th>
                                     <td>{entry.date}</td>
+                                    <td>{entry.score}</td>
                                 </tr>
                             )
                         })}
                         
                     </tbody>
-                </table> */}
+                </table>
 
 
 

@@ -1,3 +1,2 @@
-SELECT * FROM game_scores
-WHERE username = $1
-LIMIT 10;
+SELECT score, date FROM game_scores
+WHERE username = $1;

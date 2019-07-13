@@ -8,7 +8,7 @@ class SomethingElse extends Component {
         return (
             <div className="box">
                 <p className="title">Coming Soon!</p>
-                <p>Sorry, I'm dragging my feet about this</p>
+                <p>Sorry, I'm dragging my feet on this</p>
             </div>
         )
     };

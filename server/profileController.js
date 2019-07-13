@@ -35,7 +35,8 @@ module.exports = {
         const { username } = req.body
         const dbInstance = req.app.get('db')
 
-        dbInstance.get_game_histroy([username]).then(response => {
+
+        dbInstance.get_game_history([username]).then(response => {
             res.status(200).send(response)
         }).catch(err => {
             console.log(err)
