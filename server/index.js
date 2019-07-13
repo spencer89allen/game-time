@@ -156,6 +156,7 @@ app.get(`/me`, (req, res) => {
 //profile endpoints
 app.post(`/profile/info`, profileCtrl.addProfile)
 app.post(`/profile/get`, profileCtrl.getProfile)
+app.post(`/profile/gameHistory/get`, profileCtrl.getGameHistory)
 
 //game endpoints
 app.post(`/game/score`, gameCtrl.postScore)

@@ -42,11 +42,11 @@ class Main extends Component {
                                 <p>About the Game</p>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to={`/us`}>
                                 <p>About Us</p>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to={`/something`}>
                                 <p>Free Play</p>
@@ -57,7 +57,7 @@ class Main extends Component {
                 <div>
                     <Switch>
                         <Route component={TopScores} exact path='/scores' />
-                        <Route component={AboutUs} path='/us' />
+                        {/* <Route component={AboutUs} path='/us' /> */}
                         <Route component={AboutGame} path='/game' />
                         <Route component={SomethingElse} path='/something' />
 

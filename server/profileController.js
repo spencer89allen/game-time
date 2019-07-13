@@ -29,6 +29,18 @@ module.exports = {
             console.log(err)
             res.status(500).send('Something went wrong getting the proflie info from the database')
         })
-    }
+    },
+
+    getGameHistory: (req, res) => {
+        const { username } = req.body
+        const dbInstance = req.app.get('db')
+
+        dbInstance.get_game_histroy([username]).then(response => {
+            res.status(200).send(response)
+        }).catch(err => {
+            console.log(err)
+            res.status(500).send('Something went wrong getting the proflie info from the database')
+        })
+    },
     
 }

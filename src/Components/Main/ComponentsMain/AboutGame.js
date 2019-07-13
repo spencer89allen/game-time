@@ -18,7 +18,7 @@ class AboutGame extends Component {
                     <div className="tile is-parent">
                         <div className="tile is-child box">
                             <p className="title">Phaser 3</p>
-                            <p>Phaser is a free software 2D game framework for making HTML5 games for desktop and mobile. It is developed by Photon Storm.
+                            <p>I developed the game using Phaser. Phaser is a free software 2D game framework for making HTML5 games for desktop and mobile. It is developed by Photon Storm.
                             Phaser uses both a Canvas and WebGL renderer internally and can automatically swap between them based on browser support. This allows for fast rendering across desktop and mobile. It uses the Pixi.js library for rendering. Games can be compiled to iOS, Android and native desktop apps via 3rd party tools like Apache Cordova.</p>
                         </div>
                     </div>

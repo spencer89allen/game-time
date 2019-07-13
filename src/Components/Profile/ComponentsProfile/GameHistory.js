@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 
 class GameHistory extends Component {
 
-    
+    state = {
+        gameHistory: ''
+    }
 
+    
+    componentWillMount() {
+
+        const { username } = this.props.match.params.username
+        const body =  { username }
+
+        Axios.post(`/profile/gameHistory/get`, body).then((res) => {
+            this.setState({
+                gameHistory: res.data
+            })
+        })
+    }
 
     render() {
+        console.log(this.props.match.params.username)
         return(
             <div className='box'>
-                <table className="table is-striped is-fullwidth">
+                {/* <table className="table is-striped is-fullwidth">
                     <thead>
                         <tr>
                             <th>Rank</th>
@@ -19,68 +35,20 @@ class GameHistory extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Somebody</td>
-                            <td>38</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Somebody Else</td>
-                            <td>37</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Somebody Else</td>
-                            <td>36</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Somebody Else</td>
-                            <td>35</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Somebody Else</td>
-                            <td>34</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Somebody Else</td>
-                            <td>33</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>7</th>
-                            <td>Somebody Else</td>
-                            <td>32</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>8</th>
-                            <td>Somebody Else</td>
-                            <td>31</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>9</th>
-                            <td>Somebody Else</td>
-                            <td>30</td>
-                            <td>0/0/0</td>
-                        </tr>
-                        <tr>
-                            <th>10</th>
-                            <td>Somebody Else</td>
-                            <td>29</td>
-                            <td>0/0/0</td>
-                        </tr>
+                        {this.state.topTenScores.map(entry => {
+                            return(
+                                <tr key={entry.id}>
+                                    <th>{this.state.topTenScores.indexOf(entry) + 1}</th>
+                                    <td>{entry.username}</td>
+                                    <td>{entry.score}</td>
+                                    <td>{entry.date}</td>
+                                </tr>
+                            )
+                        })}
+                        
                     </tbody>
-                </table>
+                </table> */}
+
 
 
             </div>

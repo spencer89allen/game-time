@@ -50,13 +50,13 @@ class Nav extends Component {
                                     <div className="navbar-end">
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <button className="button is-dark is-outlined">
+                                                <button className="button is-warning is-outlined">
                                                     <Link to='/register'>
                                                         <strong>Register</strong>
                                                     </Link>
                                                 </button>
 
-                                                <button className="button is-dark is-outlined">
+                                                <button className="button is-warning is-outlined">
                                                     <Link to='/login'>
                                                         <strong>Log In</strong>
                                                     </Link>
