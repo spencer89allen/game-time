@@ -5,6 +5,7 @@ var sessions = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var bcrypt = require('bcrypt');
+var path = require('path');
 
 var profileCtrl = require('./profileController')
 var gameCtrl = require('./gameConntroller');
@@ -164,7 +165,11 @@ app.post(`/game/score`, gameCtrl.postScore)
 //score endpoints
 app.get(`/score/topTen`, gameCtrl.getTopTen)
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+   });
 
+app.use(express.static(__dirname + '/../build'))
 
 //PORT STUFF
 var Port = 4545;

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import { login } from '/Users/spencerallen/new-projects/game-time/src/redux/authReducer.js'
+import { login } from '../../redux/authReducer'
 
 
 
