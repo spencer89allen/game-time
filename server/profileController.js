@@ -43,5 +43,19 @@ module.exports = {
             res.status(500).send('Something went wrong getting the proflie info from the database')
         })
     },
+
+    editProfile: (req, res) => {
+        // console.log(req.body)
+        const { username, image, info } = req.body;
+        console.log(typeof username, typeof info)
+        const dbInstance = req.app.get('db');
+
+        dbInstance.edit_profile([ username.username, image, info ]).then((response) => {
+            res.status(200).send(response)
+        }).catch(err => {
+            console.log(err)
+            res.status(500).send('Something went wrong editing the profile info')
+        })
+    },
     
 }

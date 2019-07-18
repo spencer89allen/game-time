@@ -74,8 +74,7 @@ passport.use('register', new LocalStrategy({ passReqToCallback: true }, function
                     return done({ message: 'System Failure' }, false)
         })
         });
-    })
-        .catch(error => {
+    }).catch(error => {
             console.log(error.message)
             return done({ message: 'System Failure' }, false)
         })
@@ -158,6 +157,7 @@ app.get(`/me`, (req, res) => {
 app.post(`/profile/info`, profileCtrl.addProfile)
 app.post(`/profile/get`, profileCtrl.getProfile)
 app.post(`/profile/gameHistory/get`, profileCtrl.getGameHistory)
+app.put(`/profile/edit`, profileCtrl.editProfile)
 
 //game endpoints
 app.post(`/game/score`, gameCtrl.postScore)
@@ -165,12 +165,14 @@ app.post(`/game/score`, gameCtrl.postScore)
 //score endpoints
 app.get(`/score/topTen`, gameCtrl.getTopTen)
 
+
+
+
 app.use(express.static(__dirname + '/../build'))
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
    });
-
 
 
 //PORT STUFF

@@ -8,6 +8,7 @@ import Axios from 'axios';
 class CreateProfile extends Component {
 
     state = {
+        // isEdit: false,
         username: '',
         userInfo: '',
         image: '',
@@ -17,6 +18,9 @@ class CreateProfile extends Component {
         this.setState({
             username: this.props.match.params.username
         })
+
+
+
     }
 
 
@@ -44,8 +48,8 @@ class CreateProfile extends Component {
 
 
     render() {
-        // console.log(this.props.match.params.username)
-        // console.log(this.state.username)
+        console.log(this.props.match)
+        console.log(this.state.username)
         return (
             <div>
                 <section className="hero is-dark is-medium">

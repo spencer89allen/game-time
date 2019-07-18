@@ -22,7 +22,7 @@ class GameHistory extends Component {
     }
 
     render() {
-       console.log(this.state)
+    //    console.log(this.state)
         return(
             <div className='box'>
                 <table className="table is-striped is-fullwidth">

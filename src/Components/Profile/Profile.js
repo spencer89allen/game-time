@@ -33,7 +33,7 @@ class Profile extends Component {
         // console.log(this.props.match.params.username)
         // console.log(this.state.firstName)
         // console.log(this.props.authReducer.user)
-        console.log('user:',this.props)
+        // console.log('user:',this.props)
         if(!this.props.authReducer.user) return <Redirect to='/login' />
 
         return (
